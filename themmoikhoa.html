@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm mới Khoa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .form-group input[type="text"], .form-group input[type="email"], .form-group input[type="tel"] {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+        }
+        .form-actions button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-actions .save-btn {
+            background-color: #28a745;
+            color: #fff;
+            margin-left: 10px;
+        }
+        .form-actions .cancel-btn {
+            background-color: #dc3545;
+            color: #fff;
+        }
+        .form-actions .save-btn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Thêm mới Khoa</h2>
+        <form id="khoaForm">
+            <div class="form-group">
+                <label for="ma-khoa">Mã Khoa *</label>
+                <input type="text" id="ma-khoa" name="ma-khoa" required>
+            </div>
+            <div class="form-group">
+                <label for="ten-khoa">Tên Khoa *</label>
+                <input type="text" id="ten-khoa" name="ten-khoa" required>
+            </div>
+          <div class="form-group">
+            <label for="dia-chi">Địa chỉ</label>
+              <input name="dia-chi" type="text" required="required" id="dia-chi">
+            </div>
+          <div class="form-group">
+            <label for="so-dien-thoai">Số điện thoại</label>
+              <input name="so-dien-thoai" type="tel" required="required" id="so-dien-thoai">
+            </div>
+          <div class="form-group">
+            <label for="email">Địa chỉ Email</label>
+              <input name="email" type="email" required="required" id="email">
+            </div>
+            <div class="form-group">
+                <label for="chu-nhiem-khoa">Chủ nhiệm Khoa *</label>
+                <select id="chu-nhiem-khoa" name="chu-nhiem-khoa" required>
+                  <option value="">Công nghệ thông tin</option>
+                  <option>Du lịch</option>
+                  <option>ngôn ngữ</option>
+                  <option>truyền thông</option>
+                    <!-- Options will be populated here -->
+                </select>
+            </div>
+            <div class="form-actions">
+                <button type="button" class="cancel-btn" onclick="cancel()">Hủy bỏ</button>
+                <button type="submit" class="save-btn" id="save-btn" disabled>Lưu</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function cancel() {
+            window.location.href = 'quanlykhoa.html'; // Đổi URL này thành URL của trang bạn muốn chuyển đến khi nhấn "Hủy bỏ"
+        }
+
+        document.getElementById('khoaForm').addEventListener('input', 
+		function() {
+            const maKhoa = document.getElementById('ma-khoa').value.trim();
+            const tenKhoa = document.getElementById('ten-khoa').value.trim();
+            const chuNhiemKhoa = document.getElementById('chu-nhiem-khoa').value;
+
+            const saveBtn = document.getElementById('save-btn');
+            if (maKhoa && tenKhoa && chuNhiemKhoa) {
+                saveBtn.disabled = false;
+            } else {
+                saveBtn.disabled = true;
+            }
+        });
+
+        document.getElementById('khoaForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const maKhoa = document.getElementById('ma-khoa').value;
+            const tenKhoa = document.getElementById('ten-khoa').value;
+            const diaChi = document.getElementById('dia-chi').value;
+            const soDienThoai = document.getElementById('so-dien-thoai').value;
+            const email = document.getElementById('email').value;
+            const chuNhiemKhoa = document.getElementById('chu-nhiem-khoa').value;
+
+            localStorage.setItem("maKhoa", maKhoa);
+            localStorage.setItem("tenKhoa", tenKhoa);
+            localStorage.setItem("diaChi", diaChi);
+            localStorage.setItem("soDienThoai", soDienThoai);
+            localStorage.setItem("email", email);
+            localStorage.setItem("chuNhiemKhoa", chuNhiemKhoa);
+
+            window.location.href = 'quanlykhoa.html';
+        });
+    </script>
+</body>
+</html>

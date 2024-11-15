@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kết quả Khóa luận tốt nghiệp</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            position: relative;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .form-group {
+            margin-bottom: 10px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .form-group textarea {
+            resize: vertical;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .table th {
+            background-color: #f2f2f2;
+        }
+        .total-score {
+            text-align: right;
+            font-weight: bold;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 24px;
+            color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <span class="close-btn" onclick="window.location.href='quanlykhoaluan.html'">&times;</span>
+        <div class="header">
+            <h1>Kết quả Khóa luận tốt nghiệp</h1>
+        </div>
+        <div class="section">
+            <div class="section-title">Thông tin khóa luận</div>
+            <div class="form-group">
+                <label for="ma-khoa-luan">Mã khóa luận</label>
+                <input type="text" id="ma-khoa-luan" value="KL001" readonly>
+            </div>
+            <div class="form-group">
+                <label for="ten-de-tai">Tên đề tài</label>
+                <input type="text" id="ten-de-tai" value="Phát triển hệ thống phần mềm XYZ" readonly>
+            </div>
+            <div class="form-group">
+                <label for="sinh-vien">Sinh viên</label>
+                <input type="text" id="sinh-vien" value="Trần Phúc Đạt" readonly>
+            </div>
+            <div class="form-group">
+                <label for="giang-vien">Giảng viên hướng dẫn</label>
+                <input type="text" id="giang-vien" value="Ths. Nguyễn Công Ninh" readonly>
+            </div>
+            <div class="form-group">
+                <label for="nhan-xet">Nhận xét</label>
+                <textarea id="nhan-xet" rows="4" readonly>Báo cáo tốt, trình bày rõ ràng, mong cô cho điểm cao ạ &lt;3 .....</textarea>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Thành viên hội đồng</div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Chức vụ</th>
+                        <th>Họ và tên</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Chủ tịch hội đồng</td>
+                        <td>Nguyễn Văn B</td>
+                    </tr>
+                    <tr>
+                        <td>Thư ký</td>
+                        <td>Nguyễn Thị M</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="section">
+            <div class="section-title">Chi tiết điểm</div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Cán bộ cho điểm</th>
+                        <th>Họ và tên</th>
+                        <th>Điểm đánh giá (Từ 1 - 10)</th>
+                        <th>Hệ số (%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Cán bộ hướng dẫn</td>
+                        <td>Trần Bảo Trân</td>
+                        <td>10</td>
+                        <td>50</td>
+                    </tr>
+                    <tr>
+                        <td>Cán bộ phản biện</td>
+                        <td>Nguyễn Văn M</td>
+                        <td>9</td>
+                        <td>25</td>
+                    </tr>
+                    <tr>
+                        <td>Cán bộ phản biện</td>
+                        <td>Nguyễn Thị L</td>
+                        <td>8</td>
+                        <td>25</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="total-score">
+                <span>Điểm tổng kết: 9.0</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiết lập hệ thống</title>
+    <style>
+        body {
+            display: flex;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            box-sizing: border-box;
+            background-color: #f0f0f0;
+        }
+        .container {
+            display: flex;
+            width: 80%;
+            height: 100%;
+            margin: auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #4EB7E0;
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
+            border-right: 1px solid #ddd;
+        }
+        .sidebar h2, .sidebar p {
+            margin: 0;
+            margin-bottom: 20px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 10px 0;
+            border: 1px solid #AFAFAF;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            margin: 0;
+        }
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+        .user-info img {
+            border-radius: 50%;
+            margin-left: 10px;
+        }
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input[type="date"] {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .form-group .actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .form-group .add-btn {
+            color: green;
+            cursor: pointer;
+        }
+        .form-group .delete-btn {
+            color: red;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Trường Đại học Văn Hiến</h2>
+            <p>Hệ thống quản lý khóa luận tốt nghiệp</p>
+            <ul>
+            <li><a href="#">Tổng quan</a></li>
+                <li><a href="#">Quản lý đào tạo</a></li>
+                <li><a href="quanlykhoa.html">Quản lý Khoa</a></li>
+                <li><a href="quanlynganh.html">Quản lý Ngành</a></li>
+                <li><a href="quanlynienkhoa.html">Quản lý Lớp khóa học</a></li>
+                <li><a href="quanlygiangvien.html">Quản lý giảng viên</a></li>
+                <li><a href="khóa luận.html">Quản lý sinh viên</a></li>
+                <li><a href="quanlykhoaluan.html">Quản lý khóa luận</a></li>
+                <li><a href="quanlyhoidong.html">Quản lý hội đồng</a></li>
+                <li><a href="setting.html">Thiết lập hệ thống</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <div class="header">
+                <h1>Thiết lập hệ thống</h1>
+                <div class="user-info">
+                    <span><a href="Khoaluan.html">Triệu Lê</a></span>
+                    <img src="unnamed.jpg" alt="User Avatar" width="40" height="40">
+                </div>
+            </div>
+            <div class="form-container">
+                <h2>Thiết lập hệ thống</h2>
+                <div class="form-group">
+                    <label>Thời gian đăng ký đề tài</label>
+                    <label>Khoảng thời gian cho phép sinh viên đăng ký mới khóa luận tốt nghiệp</label>
+                    <div class="actions">
+                        <input type="date">
+                        đến ngày
+                        <input type="date">
+                        <span class="delete-btn">🗑️</span>
+                    </div>
+                    <span class="add-btn">Thêm ➕</span>
+                </div>
+                <div class="form-group">
+                    <label>Thời gian điều chỉnh thông tin khóa luận</label>
+                    <label>Khoảng thời gian cho phép sinh viên điều chỉnh thông tin khóa luận</label>
+                    <div class="actions">
+                        <input type="date">
+                        đến ngày
+                        <input type="date">
+                        <span class="delete-btn">🗑️</span>
+                    </div>
+                    <span class="add-btn">Thêm ➕</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

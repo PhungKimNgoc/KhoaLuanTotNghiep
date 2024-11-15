@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý Khóa luận tốt nghiệp</title>
+    <style>
+        body {
+            display: flex;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            box-sizing: border-box;
+            background-color: #f4f4f4;
+        }
+        .container {
+            display: flex;
+            width: 80%;
+            height: 80%;
+            margin: auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 1px solid #ddd; /* Thêm viền cho toàn bộ khung */
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #4EB7E0;
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
+            border-right: 1px solid #ddd; /* Thêm viền cho phần bên trái */
+        }
+        .sidebar h2 {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin-bottom: 10px;
+            border: 1px solid #AFAFAF; /* Thêm viền bao quanh 4 cạnh */
+            padding: 10px; /* Thêm khoảng cách bên trong các mục */
+            border-radius: 5px; /* Thêm bo tròn góc cho viền */
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: block; /* Đảm bảo liên kết chiếm toàn bộ không gian của phần tử */
+        }
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            background-color: white;
+            box-sizing: border-box;
+        }
+        .main-content h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .table-container {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .btn {
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px; /* Thêm bo tròn góc cho nút */
+        }
+        .btn-approve {
+            background-color: #28a745;
+            color: white;
+        }
+        .btn-reject {
+            background-color: #dc3545;
+            color: white;
+        }
+        .eye-icon {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Trường Đại học Văn Hiến</h2>
+            <ul>
+                <li><a href="yeucauhuongdan.html">Yêu cầu hướng dẫn</a></li>
+                <li><a href="#">Đang hướng dẫn</a></li>
+                <li><a href="#">Đã hướng dẫn</a></li>
+                <li><a href="#">Đang phản biện</a></li>
+                <li><a href="#">Đã phản biện</a></li>
+                <li><a href="#">Thiết lập</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <h1>Danh sách đang hướng dẫn khóa luận</h1>
+			<span><a href="Khoaluan.html">Triệu Lê</a></span>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mã khóa luận</th>
+                            <th>Tên đề tài</th>
+                            <th>Năm học</th>
+                            <th>Học kỳ</th>
+                            <th>Sinh viên</th>
+                            <th>Khoa</th>
+                            <th>Xem</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>KL0001</td>
+                            <td>Phát triển hệ thống phần mềm XYZ</td>
+                            <td>2023-2024</td>
+                            <td>1</td>
+                            <td>Trần Phúc Đạt</td>
+                            <td>Công nghệ thông tin</td>
+                            <td><span class="eye-icon" onclick="viewDetails()">👁️</span></td>
+                        </tr>
+                        <!-- Add more rows as needed -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        function viewDetails() {
+            alert('Xem chi tiết cho mã khóa luận KL0001');
+			window.location.href = 'thongtinkhoaluan.html';
+        }
+    </script>
+</body>
+</html>

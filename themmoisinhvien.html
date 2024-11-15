@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm mới Sinh viên</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-group input[type="number"] {
+            -moz-appearance: textfield;
+        }
+        .form-group input[type="number"]::-webkit-outer-spin-button,
+        .form-group input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+        .form-actions button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-actions .save-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .form-actions .cancel-btn {
+            background-color: #f44336;
+            color: white;
+        }
+        .form-actions .save-btn:disabled {
+            background-color: #a5d6a7;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Thêm mới Sinh viên</h2>
+        <div class="form-group">
+            <label for="student-id">Mã sinh viên *</label>
+            <input type="text" id="student-id" required>
+        </div>
+        <div class="form-group">
+            <label for="student-name">Họ và tên *</label>
+            <input type="text" id="student-name" required>
+        </div>
+        <div class="form-group">
+            <label for="class">Lớp khóa học *</label>
+            <select id="class" required>
+                <option value="">Chọn lớp khóa học</option>
+                <!-- Add class options here -->
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="department">Khoa</label>
+            <input type="text" id="department">
+        </div>
+        <div class="form-group">
+            <label for="major">Ngành</label>
+            <input type="text" id="major">
+        </div>
+        <div class="form-group">
+            <label for="gender">Giới tính</label>
+            <select id="gender">
+                <option value="">Chọn giới tính</option>
+                <option value="male">Nam</option>
+                <option value="female">Nữ</option>
+                <option value="other">Khác</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="dob">Ngày sinh</label>
+            <input type="date" id="dob">
+        </div>
+        <div class="form-group">
+            <label for="credits">Số TC tích lũy</label>
+            <input type="number" id="credits">
+        </div>
+        <div class="form-group">
+            <label for="gpa">Điểm trung bình chung</label>
+            <input type="number" step="0.01" id="gpa">
+        </div>
+        <div class="form-group">
+            <label for="phone">Số điện thoại</label>
+            <input type="tel" id="phone">
+        </div>
+        <div class="form-group">
+            <label for="email">Địa chỉ Email</label>
+            <input type="email" id="email">
+        </div>
+        <div class="form-group">
+            <label for="address">Địa chỉ liên hệ</label>
+            <input type="text" id="address">
+        </div>
+        <div class="form-actions">
+            <button class="cancel-btn" onclick="cancel()">Hủy bỏ</button>
+            <button class="save-btn" onclick="save()" disabled>Lưu</button>
+        </div>
+    </div>
+
+    <script>
+        function enableSaveButton() {
+            const studentId = document.getElementById('student-id').value.trim();
+            const studentName = document.getElementById('student-name').value.trim();
+            const studentClass = document.getElementById('class').value;
+            const saveButton = document.querySelector('.save-btn');
+            if (studentId && studentName && studentClass) {
+                saveButton.disabled = false;
+            } else {
+                saveButton.disabled = true;
+            }
+        }
+
+        document.getElementById('student-id').addEventListener('input', enableSaveButton);
+        document.getElementById('student-name').addEventListener('input', enableSaveButton);
+        document.getElementById('class').addEventListener('change', enableSaveButton);
+
+        function save() {
+            alert('Lưu thành công!');
+						  window.location.href = 'khóa luận.html';
+
+        }
+
+        function cancel() {
+            alert('Hủy bỏ!');
+						  window.location.href = 'khóa luận.html';
+
+        }
+    </script>
+</body>
+</html>

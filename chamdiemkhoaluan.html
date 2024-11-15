@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chấm điểm Khóa luận tốt nghiệp</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .form-group textarea {
+            resize: vertical;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .table th {
+            background-color: #f2f2f2;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #28a745;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Chấm điểm Khóa luận tốt nghiệp</h1>
+        </div>
+        <form id="cham-diem-form">
+            <div class="form-group">
+                <label for="ma-khoa-luan">Mã khóa luận *</label>
+                <input type="text" id="ma-khoa-luan" name="ma-khoa-luan" value="KL001">
+            </div>
+            <div class="form-group">
+                <label for="ten-de-tai">Tên đề tài *</label>
+                <input type="text" id="ten-de-tai" name="ten-de-tai" value="Phát triển hệ thống phần mềm XYZ">
+            </div>
+            <div class="form-group">
+                <label for="sinh-vien">Sinh viên</label>
+                <input type="text" id="sinh-vien" name="sinh-vien" value="Trần Phúc Đạt">
+            </div>
+            <div class="form-group">
+                <label for="giao-vien-huong-dan">Giảng viên hướng dẫn</label>
+                <input type="text" id="giao-vien-huong-dan" name="giao-vien-huong-dan" value="Ths. Nguyễn Công Ninh">
+            </div>
+            <div class="form-group">
+                <label for="nhan-xet">Nhận xét</label>
+                <textarea id="nhan-xet" name="nhan-xet">Báo cáo tốt, trình bày rõ ràng , mong cô cho điểm cao ạ &lt;3 .....</textarea>
+            </div>
+            <div class="form-group">
+                <label for="file-nhan-xet">File nhận xét đính kèm</label>
+                <input type="file" id="file-nhan-xet" name="file-nhan-xet">
+            </div>
+            <h2>Thành viên hội đồng</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Chức vụ</th>
+                        <th>Họ và tên</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Chủ tịch hội đồng</td>
+                        <td>Nguyễn Văn B</td>
+                    </tr>
+                    <tr>
+                        <td>Thư ký</td>
+                        <td>Nguyễn Thị M</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>Chi tiết điểm</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Cán bộ cho điểm</th>
+                        <th>Họ và tên</th>
+                        <th>Điểm đánh giá (Từ 1 - 10)</th>
+                        <th>Hệ số (%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Cán bộ hướng dẫn</td>
+                        <td>Trần Bảo Trân</td>
+                        <td><input type="number" min="1" max="10" value="10"></td>
+                        <td>
+                            <select>
+                                <option value="100">100%</option>
+                                <option value="80">80%</option>
+                                <option value="50">50%</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Thành viên hội đồng</td>
+                        <td>Nguyễn Văn B</td>
+                        <td><input type="number" min="1" max="10" value="9"></td>
+                        <td>
+                            <select>
+                                <option value="100">100%</option>
+                                <option value="80">80%</option>
+                                <option value="50">50%</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="form-group">
+                <label for="diem-tong-ket">Điểm tổng kết</label>
+                <input type="text" id="diem-tong-ket" name="diem-tong-ket" value="9">
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn" onclick="chamDiem()">Chấm điểm</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        function chamDiem() {
+            window.location.href = 'diemtongket.html'; // Đổi URL này thành URL của trang bạn muốn chuyển đến khi nhấn "Chấm điểm"
+        }
+    </script>
+</body>
+</html>

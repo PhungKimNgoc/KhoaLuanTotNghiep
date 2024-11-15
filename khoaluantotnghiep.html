@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khóa luận tốt nghiệp</title>
+    <style>
+        body {
+            display: flex;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            box-sizing: border-box;
+            background-color: #f0f0f0;
+        }
+        .container {
+            display: flex;
+            width: 80%;
+            height: 80%;
+            margin: auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 1px solid #ddd; /* Thêm viền cho toàn bộ khung */
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #4EB7E0;
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
+            border-right: 1px solid #ddd; /* Thêm viền cho phần bên trái */
+        }
+        .sidebar h2, .sidebar p {
+            margin: 0;
+            margin-bottom: 20px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 10px 0;
+            border: 1px solid #AFAFAF; /* Thêm viền bao quanh 4 cạnh */
+            padding: 10px; /* Thêm khoảng cách bên trong các mục */
+            border-radius: 5px; /* Thêm bo tròn góc cho viền */
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: block; /* Đảm bảo liên kết chiếm toàn bộ không gian của phần tử */
+        }
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            margin: 0;
+        }
+        .header .actions {
+            display: flex;
+            gap: 10px;
+        }
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+        .user-info img {
+            border-radius: 50%;
+            margin-left: 10px;
+        }
+        .btn-add, .btn-filter {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .btn-filter {
+            background-color: #007bff;
+        }
+        .table-container {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        table th {
+            background-color: #f2f2f2;
+        }
+        table tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+        table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .filter-container {
+            display: none; /* Ẩn bộ lọc ban đầu */
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .filter-container label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .filter-container select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+        }
+        .filter-container button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #28a745;
+            color: white;
+        }
+        .filter-container button.reset {
+            background-color: #dc3545;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Trường Đại học Văn Hiến</h2>
+            <p>Hệ thống quản lý khóa luận tốt nghiệp</p>
+            <ul>
+                <li><a href="#">Khóa luận tốt nghiệp</a></li>
+                <li><a href="#">Yêu cầu hướng dẫn</a></li>
+                <li><a href="quanlykhoa.html">Đang hướng dẫn</a></li>
+                <li><a href="quanlynganh.html">Đã hướng dẫn</a></li>
+                <li><a href="quanlynienkhoa.html">Đang phản biện</a></li>
+                <li><a href="quanlygiangvien.html">Đã phản biện</a></li>
+                <li><a href="khóa luận.html">Thiết lập</a></li>
+              
+            </ul>
+        </div>
+      <div class="main-content">
+            <div class="header">
+                <h1>Khóa luận tốt nghiệp</h1>
+                <div class="user-info">
+                    <span><a href="Khoaluan.html">Thầy An</a></span>
+                    <img src="unnamed.jpg" alt="User Avatar" width="40" height="40">
+                </div>
+            </div>
+         
+      
+        </div>
+    </div>
+
+    
+</body>
+</html>

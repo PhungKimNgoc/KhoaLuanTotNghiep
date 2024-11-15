@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm mới Giảng viên</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 500px;
+        }
+        .form-container h2 {
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .form-group input[type="date"] {
+            padding: 6px;
+        }
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+        }
+        .form-actions button {
+            padding: 10px 20px;
+            margin-left: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-actions .cancel {
+            background-color: #ccc;
+        }
+        .form-actions .save {
+            background-color: #28a745;
+            color: white;
+            cursor: not-allowed;
+        }
+        .form-actions .save.active {
+            cursor: pointer;
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Thêm mới Giảng viên</h2>
+        <form id="giang-vien-form">
+            <div class="form-group">
+                <label for="ma-giang-vien">Mã giảng viên *</label>
+                <input type="text" id="ma-giang-vien" name="ma-giang-vien" required>
+            </div>
+            <div class="form-group">
+                <label for="ho-va-ten">Họ và tên *</label>
+                <input type="text" id="ho-va-ten" name="ho-va-ten" required>
+            </div>
+            <div class="form-group">
+                <label for="don-vi-cong-tac">Đơn vị công tác *</label>
+                <select id="don-vi-cong-tac" name="don-vi-cong-tac" required>
+                  <option value="">Công nghệ thông tin</option>
+                  <option>Du lịch</option>
+                  <option>Ngôn ngữ</option>
+                  <option>Truyền thông</option>
+                    <!-- Thêm tùy chọn ở đây -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="gioi-tinh">Giới tính</label>
+                <select id="gioi-tinh" name="gioi-tinh">
+                  <option value="">Nam</option>
+                  <option>Nữ</option>
+                  <option>Khác</option>
+                    <!-- Thêm tùy chọn ở đây -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="ngay-sinh">Ngày sinh</label>
+                <input type="date" id="ngay-sinh" name="ngay-sinh">
+            </div>
+            <div class="form-group">
+                <label for="so-dien-thoai">Số điện thoại</label>
+                <input type="tel" id="so-dien-thoai" name="so-dien-thoai">
+            </div>
+            <div class="form-group">
+                <label for="email">Địa chỉ Email</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <div class="form-group">
+                <label for="dia-chi">Địa chỉ</label>
+                <input type="text" id="dia-chi" name="dia-chi">
+            </div>
+            <div class="form-actions">
+                <button type="button" class="cancel" id="cancelBtn">Hủy bỏ</button>
+                <button type="submit" class="save" id="saveBtn" disabled>Lưu</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        document.getElementById('giang-vien-form').addEventListener('input', function() {
+            var maGiangVien = document.getElementById('ma-giang-vien').value.trim();
+            var hoVaTen = document.getElementById('ho-va-ten').value.trim();
+            var donViCongTac = document.getElementById('don-vi-cong-tac').value.trim();
+            var saveBtn = document.getElementById('saveBtn');
+
+            if (maGiangVien && hoVaTen && donViCongTac) {
+                saveBtn.disabled = false;
+                saveBtn.classList.add('active');
+            } else {
+                saveBtn.disabled = true;
+                saveBtn.classList.remove('active');
+            }
+        });
+
+        document.getElementById('saveBtn').addEventListener('click', function(event) {
+            event.preventDefault();
+            alert('Dữ liệu đã được lưu!');
+			window.location.href = 'quanlygiangvien.html';
+        });
+
+        document.getElementById('cancelBtn').addEventListener('click', function(event) {
+            event.preventDefault();
+            if (confirm('Bạn có chắc chắn muốn hủy bỏ?')) {
+                alert('Hủy bỏ thành công!');
+				window.location.href = 'quanlygiangvien.html';
+            }
+        });
+    </script>
+</body>
+</html>

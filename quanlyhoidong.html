@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý hội đồng</title>
+    <style>
+        body {
+            display: flex;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            box-sizing: border-box;
+            background-color: #f0f0f0;
+        }
+        .container {
+            display: flex;
+            width: 80%;
+            height: 80%;
+            margin: auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #4EB7E0;
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
+            border-right: 1px solid #ddd;
+        }
+        .sidebar h2, .sidebar p {
+            margin: 0;
+            margin-bottom: 20px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 10px 0;
+            border: 1px solid #AFAFAF;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            margin: 0;
+        }
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+        .user-info img {
+            border-radius: 50%;
+            margin-left: 10px;
+        }
+        .btn-add {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .table-container {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table th, table td {
+            border: 1px solid #FFFFFF;
+            padding: 12px;
+            text-align: left;
+        }
+        table th {
+            background-color: #f2f2f2;
+        }
+        table tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+        table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Trường Đại học Văn Hiến</h2>
+            <p>Hệ thống quản lý khóa luận tốt nghiệp</p>
+            <ul>
+               <li><a href="#">Tổng quan</a></li>
+                <li><a href="#">Quản lý đào tạo</a></li>
+                <li><a href="quanlykhoa.html">Quản lý Khoa</a></li>
+                <li><a href="quanlynganh.html">Quản lý Ngành</a></li>
+                <li><a href="quanlynienkhoa.html">Quản lý Lớp khóa học</a></li>
+                <li><a href="quanlygiangvien.html">Quản lý giảng viên</a></li>
+                <li><a href="khóa luận.html">Quản lý sinh viên</a></li>
+                <li><a href="quanlykhoaluan.html">Quản lý khóa luận</a></li>
+                <li><a href="quanlyhoidong.html">Quản lý hội đồng</a></li>
+                <li><a href="setting.html">Thiết lập hệ thống</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <div class="header">
+                <h1>Danh sách Hội Đồng</h1>
+                <div class="user-info">
+                    <span><a href="Khoaluan.html">Triệu Lê</a></span>
+                    <img src="unnamed.jpg" alt="User Avatar" width="40" height="40">
+                </div>
+            </div>
+            <button class="btn-add" onclick="addNew()">+ Thêm</button>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mã hội đồng</th>
+                            <th>Tên hội đồng</th>
+                            <th>Năm học</th>
+                            <th>Học kỳ</th>
+                            <th>Khoa</th>
+                        </tr>
+                        <tr>
+                            <th>HĐ0001</th>
+                            <th>Hội đồng A</th>
+                            <th>2023-2024</th>
+                            <th>2</th>
+                            <th>Công nghệ thông tin</th>
+                        </tr>
+                        <tr>
+                            <th>HĐ0002</th>
+                            <th>Hội đồng B</th>
+                            <th>2023-2024</th>
+                            <th>2</th>
+                            <th>Thiết kế đồ họa</th>
+                        </tr>
+                        <tr>
+                          <th>&nbsp;</th>
+                          <th>&nbsp;</th>
+                          <th>&nbsp;</th>
+                          <th>&nbsp;</th>
+                          <th>&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function addNew() {
+            window.location.href = 'themmoihoidong.html'; // Đổi URL này thành URL của trang bạn muốn chuyển đến khi nhấn "Thêm"
+        }
+    </script>
+</body>
+</html>

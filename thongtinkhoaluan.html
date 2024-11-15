@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin Khóa luận</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 600px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            flex: 1;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        .form-group input, 
+        .form-group textarea {
+            flex: 2;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-group textarea {
+            height: 60px;
+        }
+        .form-group .half-width {
+            width: 48%;
+        }
+        .form-group .full-width {
+            width: 100%;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+        }
+        .button-group button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .button-group button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Thông tin Khóa luận</h2>
+        <div class="form-group half-width">
+            <label for="ma-khoa-luan">Mã khóa luận *</label>
+            <input type="text" id="ma-khoa-luan" value="KL0001" readonly>
+        </div>
+        <div class="form-group half-width">
+            <label for="ten-de-tai">Tên đề tài *</label>
+            <input type="text" id="ten-de-tai" value="Phát triển hệ thống phần mềm XYZ" readonly>
+        </div>
+        <div class="form-group full-width">
+            <label for="sinh-vien">Sinh viên</label>
+            <input type="text" id="sinh-vien" value="Trần Phúc Đạt" readonly>
+        </div>
+        <div class="form-group full-width">
+            <label for="can-bo-huong-dan">Cán bộ hướng dẫn</label>
+            <input type="text" id="can-bo-huong-dan" value="Ths. Nguyễn Công Ninh" readonly>
+        </div>
+        <div class="form-group half-width">
+            <label for="khoa">Khoa</label>
+            <input type="text" id="khoa" value="Công nghệ thông tin" readonly>
+        </div>
+        <div class="form-group half-width">
+            <label for="nganh">Ngành</label>
+            <input type="text" id="nganh" value="Công nghệ thông tin" readonly>
+        </div>
+        <div class="form-group half-width">
+            <label for="nam-hoc">Năm học</label>
+            <input type="text" id="nam-hoc" value="2023-2024" readonly>
+        </div>
+        <div class="form-group half-width">
+            <label for="hoc-ky">Học kỳ</label>
+            <input type="text" id="hoc-ky" value="2" readonly>
+        </div>
+        <div class="form-group full-width">
+            <label for="ghi-chu">Ghi chú</label>
+            <textarea id="ghi-chu"></textarea>
+        </div>
+        <div class="form-group full-width">
+            <label for="tap-tin-dinh-kem">Tập tin đính kèm</label>
+            <input type="file" id="tap-tin-dinh-kem">
+        </div>
+        <div class="form-group full-width">
+            <label for="trang-thai">Trạng thái</label>
+            <input type="text" id="trang-thai" value="Chờ phê duyệt" readonly>
+        </div>
+        <div class="form-group full-width">
+            <label for="diem">Điểm</label>
+            <input type="text" id="diem" readonly>
+        </div>
+        <div class="button-group full-width">
+            <button class="btn" onclick="save()">Lưu</button>
+            <button class="btn" onclick="closeForm()">Đóng</button>
+        </div>
+    </div>
+
+    <script>
+        function save() {
+            alert('Thông tin đã được lưu thành công!');
+			window.location.href = 'danghuongdan.html';
+        }
+
+        function closeForm() {
+            window.location.href = 'danghuongdan.html'; // Thay đổi trang đích sau khi đóng
+        }
+    </script>
+</body>
+</html>

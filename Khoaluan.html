@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 400px;
+        }
+        .logo {
+            margin-bottom: 30px;
+        }
+        .logo img {
+            width: 120px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .radio-group {
+            margin-bottom: 20px;
+        }
+        .radio-group label {
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        .radio-group input {
+            margin-right: 5px;
+        }
+        .button {
+            background-color: #8B4513;
+            color: #fff;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        .error {
+            color: red;
+            margin-bottom: 20px;
+        }
+        .error-container {
+            display: none;
+            text-align: center;
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 20px;
+            margin-top: 20px;
+            border: 1px solid #f5c6cb;
+            border-radius: 4px;
+        }
+        .error-container img {
+            width: 60px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="login-container">
+        <div class="logo">
+            <img src="Logo_Trường_Đại_Học_Văn_Hiến.png" alt="University Logo">
+        </div>
+        <div class="input-group">
+            <input type="text" id="username" placeholder="Tên đăng nhập">
+        </div>
+        <div class="input-group">
+            <input type="password" id="password" placeholder="Mật khẩu">
+        </div>
+        <div class="radio-group">
+            <label><input type="radio" name="user-type" value="Chuyên viên PDT"> Chuyên viên PDT</label>
+            <label><input type="radio" name="user-type" value="Giảng viên"> Giảng viên</label>
+            <label><input type="radio" name="user-type" value="Sinh viên"> Sinh viên</label>
+        </div>
+        <button class="button" onclick="login()">ĐĂNG NHẬP</button>
+
+        <div class="error-container" id="error-message">
+            <img src="erro.jpg" alt="Error Icon">
+            <p>Tên đăng nhập hoặc mật khẩu không chính xác. Vui lòng nhập lại!</p>
+            <button class="button" onclick="hideError()">Quay Lại</button>
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const userType = document.querySelector('input[name="user-type"]:checked').value;
+
+            if ((username === 'Triệu Lê' && password === 'password' && userType === 'Chuyên viên PDT') ||
+                (username === 'Thầy An' && password === 'password' && userType === 'Giảng viên') ||
+                (username === 'Lê Minh Phú' && password === 'password' && userType === 'Sinh viên')) {
+                if (userType === 'Chuyên viên PDT') {
+                    window.location.href = 'khóa luận.html';
+                } else if (userType === 'Giảng viên') {
+                    window.location.href = 'yeucauhuongdan.html';
+                } else if (userType === 'Sinh viên') {
+                    window.location.href = 'trangchusinhvien.html';
+                }
+            } else {
+                document.getElementById('error-message').style.display = 'block';
+            }
+        }
+
+        function hideError() {
+            document.getElementById('error-message').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

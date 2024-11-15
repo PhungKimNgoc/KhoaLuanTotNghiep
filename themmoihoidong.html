@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm mới Hội đồng</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .form-group .row {
+            display: flex;
+            justify-content: space-between;
+        }
+        .form-group .row .col {
+            width: 48%;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        .table th {
+            background-color: #f2f2f2;
+        }
+        .buttons {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            margin-left: 10px;
+        }
+        .frame {
+            border: 2px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="frame">
+            <h1>Thêm mới Hội đồng</h1>
+            <div class="form-group">
+                <label for="ma-hoi-dong">Mã hội đồng *</label>
+                <input type="text" id="ma-hoi-dong" name="ma-hoi-dong">
+            </div>
+            <div class="form-group">
+                <label for="ten-hoi-dong">Tên hội đồng *</label>
+                <input type="text" id="ten-hoi-dong" name="ten-hoi-dong">
+            </div>
+            <div class="form-group">
+                <label for="khoa">Khoa</label>
+                <select id="khoa" name="khoa">
+                    <option value="cong-nghe-thong-tin">Công nghệ thông tin</option>
+                </select>
+            </div>
+            <div class="form-group row">
+                <div class="col">
+                    <label for="nam-hoc">Năm học</label>
+                    <select id="nam-hoc" name="nam-hoc">
+                        <option value="2023-2024">2023-2024</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="hoc-ky">Học kỳ</label>
+                    <input type="text" id="hoc-ky" name="hoc-ky">
+                </div>
+            </div>
+            <h2>Thành viên hội đồng</h2>
+            <table class="table" id="thanh-vien-table">
+                <thead>
+                    <tr>
+                        <th>Chức vụ</th>
+                        <th>Họ và tên</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="thanh-vien-body">
+                    <tr>
+                        <td>
+                            <select id="chuc-vu">
+                                <option value="chu-tich">Chủ tịch</option>
+                                <option value="thu-ky">Thư ký</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="text" id="ho-ten">
+                        </td>
+                        <td>
+                            <button onclick="addThanhVien()">Thêm</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>Khóa luận bảo vệ</h2>
+            <table class="table" id="khoa-luan-table">
+                <thead>
+                    <tr>
+                        <th>Mã khóa luận</th>
+                        <th>Tên đề tài</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="khoa-luan-body">
+                    <tr>
+                        <td>
+                            <input type="text" id="ma-khoa-luan">
+                        </td>
+                        <td>
+                            <input type="text" id="ten-de-tai">
+                        </td>
+                        <td>
+                            <button onclick="addKhoaLuan()">Thêm</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="buttons">
+                <button id="saveBtn">Lưu</button>
+                <button id="cancelBtn">Hủy bỏ</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function addThanhVien() {
+            var table = document.getElementById("thanh-vien-body");
+            var chucVu = document.getElementById("chuc-vu").value;
+            var hoTen = document.getElementById("ho-ten").value;
+
+            if (chucVu && hoTen) {
+                var newRow = table.insertRow(table.rows.length - 1);
+
+                var cell1 = newRow.insertCell(0);
+                var cell2 = newRow.insertCell(1);
+                var cell3 = newRow.insertCell(2);
+
+                cell1.innerHTML = '<select><option value="chu-tich"' + (chucVu === "chu-tich" ? " selected" : "") + '>Chủ tịch</option><option value="thu-ky"' + (chucVu === "thu-ky" ? " selected" : "") + '>Thư ký</option></select>';
+                cell2.innerHTML = hoTen;
+                cell3.innerHTML = '<button onclick="removeRow(this)">Xóa</button>';
+
+                document.getElementById("ho-ten").value = "";
+            } else {
+                alert("Vui lòng chọn chức vụ và nhập họ và tên.");
+            }
+        }
+
+        function addKhoaLuan() {
+            var table = document.getElementById("khoa-luan-body");
+            var maKhoaLuan = document.getElementById("ma-khoa-luan").value;
+            var tenDeTai = document.getElementById("ten-de-tai").value;
+
+            if (maKhoaLuan && tenDeTai) {
+                var newRow = table.insertRow(table.rows.length - 1);
+
+                var cell1 = newRow.insertCell(0);
+                var cell2 = newRow.insertCell(1);
+                var cell3 = newRow.insertCell(2);
+
+                cell1.innerHTML = maKhoaLuan;
+                cell2.innerHTML = tenDeTai;
+                cell3.innerHTML = '<button onclick="removeRow(this)">Xóa</button>';
+
+                document.getElementById("ma-khoa-luan").value = "";
+                document.getElementById("ten-de-tai").value = "";
+            } else {
+                alert("Vui lòng nhập mã khóa luận và tên đề tài.");
+            }
+        }
+
+        function removeRow(button) {
+            var row = button.parentNode.parentNode;
+            row.parentNode.removeChild(row);
+        }
+
+        document.getElementById('saveBtn').addEventListener('click', function() {
+            alert('Dữ liệu đã được lưu!');
+			window.location.href = 'quanlyhoidong.html';
+        });
+
+        document.getElementById('cancelBtn').addEventListener('click', function() {
+            if (confirm('Bạn có chắc chắn muốn hủy bỏ?')) {
+                alert('Hủy bỏ thành công!');
+				window.location.href = 'quanlyhoidong.html';
+            }
+        });
+    </script>
+</body>
+</html>

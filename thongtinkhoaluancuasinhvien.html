@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin Khóa luận</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-group textarea {
+            resize: vertical;
+        }
+        .form-group .half-width {
+            width: 48%;
+            display: inline-block;
+        }
+        .form-group .half-width:first-child {
+            margin-right: 4%;
+        }
+        .form-group .quarter-width {
+            width: 23%;
+            display: inline-block;
+        }
+        .form-group .quarter-width:not(:last-child) {
+            margin-right: 2%;
+        }
+        .form-group .file-input {
+            display: block;
+            margin-top: 10px;
+        }
+        .form-group .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-group .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Thông tin Khóa luận</h2>
+        <div class="form-group">
+            <label for="ma-khoa-luan">Mã khóa luận *</label>
+            <input type="text" id="ma-khoa-luan" value="KL0001" readonly>
+        </div>
+        <div class="form-group">
+            <label for="ten-de-tai">Tên đề tài *</label>
+            <input type="text" id="ten-de-tai" value="Phát triển hệ thống phần mềm XYZ" readonly>
+        </div>
+        <div class="form-group">
+            <label for="sinh-vien">Sinh viên</label>
+            <input type="text" id="sinh-vien" value="Trần Phúc Đạt" readonly>
+        </div>
+        <div class="form-group">
+            <label for="can-bo-huong-dan">Cán bộ hướng dẫn</label>
+            <input type="text" id="can-bo-huong-dan" value="ThS. Nguyễn Công Ninh" readonly>
+        </div>
+        <div class="form-group">
+            <label for="khoa">Khoa</label>
+            <input type="text" id="khoa" value="Công nghệ thông tin" readonly>
+        </div>
+        <div class="form-group">
+            <label for="nganh">Ngành</label>
+            <input type="text" id="nganh" value="Công nghệ thông tin" readonly>
+        </div>
+        <div class="form-group">
+            <label for="nam-hoc">Năm học</label>
+            <input type="text" id="nam-hoc" value="2023-2024" readonly>
+        </div>
+        <div class="form-group">
+            <label for="hoc-ky">Học kỳ</label>
+            <input type="text" id="hoc-ky" value="2" readonly>
+        </div>
+        <div class="form-group">
+            <label for="ghi-chu">Ghi chú</label>
+            <textarea id="ghi-chu" rows="4" readonly></textarea>
+        </div>
+        <div class="form-group">
+            <label for="file-dinh-kem">File đính kèm</label>
+            <input type="file" id="file-dinh-kem" class="file-input" disabled>
+        </div>
+        <div class="form-group">
+            <button class="btn" onclick="closeForm()">Đóng</button>
+        </div>
+    </div>
+    <script>
+        function closeForm() {
+            alert("Form đã được đóng!");
+			 window.location.href = 'tracuu.html';
+        }
+    </script>
+</body>
+</html>

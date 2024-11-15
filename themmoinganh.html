@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm mới Ngành</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .form-group textarea {
+            height: 100px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: flex-end;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            margin-left: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        .buttons .cancel {
+            background-color: #ccc;
+        }
+        .buttons .save {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+        .buttons .save:disabled {
+            background-color: #a5d6a7;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Thêm mới Ngành</h2>
+        <div class="form-group">
+            <label for="ma-nganh">Mã ngành *</label>
+            <input type="text" id="ma-nganh" placeholder="Nhập mã ngành">
+        </div>
+        <div class="form-group">
+            <label for="ten-nganh">Tên ngành *</label>
+            <input type="text" id="ten-nganh" placeholder="Nhập tên ngành">
+        </div>
+        <div class="form-group">
+          <label for="van-bang">Văn bằng tốt nghiệp</label>
+            <select required="required" id="van-bang">
+              <option value="">Văn bằng a</option>
+              <option>Văn bằng b</option>
+              <option>Văn bằng c</option>
+                <!-- Add options here -->
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="thoi-gian">Thời gian đào tạo chuẩn</label>
+            <input type="text" id="thoi-gian">
+        </div>
+        <div class="form-group">
+            <label for="mo-ta">Mô tả</label>
+            <textarea id="mo-ta"></textarea>
+        </div>
+        <div class="buttons">
+            <button class="cancel" onclick="cancel()">Hủy bỏ</button>
+            <button class="save" onclick="save()" disabled>Lưu</button>
+        </div>
+    </div>
+
+    <script>
+        // Enable the save button only if all required fields are filled
+        function enableSaveButton() {
+            const maNganh = document.getElementById('ma-nganh').value.trim();
+            const tenNganh = document.getElementById('ten-nganh').value.trim();
+            const saveButton = document.querySelector('.save');
+            if (maNganh !== '' && tenNganh !== '') {
+                saveButton.disabled = false;
+            } else {
+                saveButton.disabled = true;
+            }
+        }
+
+        // Attach event listeners to input fields to check if they are filled
+        document.getElementById('ma-nganh').addEventListener('input', enableSaveButton);
+        document.getElementById('ten-nganh').addEventListener('input', enableSaveButton);
+
+        function cancel() {
+            // Redirect to another page or simply clear the form
+            window.location.href = 'quanlynganh.html'; // Change this to the URL you want
+        }
+
+        function save() {
+            // Perform save action, then redirect
+            alert('Lưu thành công!');
+            window.location.href = 'quanlynganh.html'; // Change this to the URL you want
+        }
+		
+       
+    </script>
+</body>
+</html>

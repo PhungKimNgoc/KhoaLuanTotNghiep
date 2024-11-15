@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm mới Lớp khóa học</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .form-group textarea {
+            resize: vertical;
+        }
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+        }
+        .form-actions button {
+            padding: 10px 20px;
+            margin-left: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-actions .save-btn {
+            background-color: #28a745;
+            color: white;
+        }
+        .form-actions .cancel-btn {
+            background-color: #dc3545;
+            color: white;
+        }
+        .form-actions .save-btn:disabled {
+            background-color: #a5d6a7;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Thêm mới Lớp khóa học</h2>
+        <div class="form-group">
+            <label for="class-code">Mã lớp *</label>
+            <input type="text" id="class-code" placeholder="Nhập mã lớp">
+        </div>
+        <div class="form-group">
+          <label for="department">Khoa *</label>
+            <select required="required" id="department">
+              <option value="">Công nghệ thông tin</option>
+              <option>Du lịch</option>
+              <option>Truyền Thông</option>
+              <option>Ngôn ngữ</option>
+                <!-- Add department options here -->
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="start-date">Ngày bắt đầu *</label>
+            <input type="date" id="start-date">
+        </div>
+        <div class="form-group">
+            <label for="end-date">Ngày kết thúc *</label>
+            <input type="date" id="end-date">
+        </div>
+        <div class="form-group">
+            <label for="description">Mô tả</label>
+            <textarea id="description" rows="4"></textarea>
+        </div>
+        <div class="form-actions">
+            <button class="cancel-btn" onclick="cancel()">Hủy bỏ</button>
+            <button class="save-btn" onclick="save()" disabled>Lưu</button>
+        </div>
+    </div>
+
+    <script>
+        function enableSaveButton() {
+            const classCode = document.getElementById('class-code').value.trim();
+            const department = document.getElementById('department').value;
+            const startDate = document.getElementById('start-date').value;
+            const endDate = document.getElementById('end-date').value;
+            const saveButton = document.querySelector('.save-btn');
+            if (classCode !== '' && department !== '' && startDate !== '' && endDate !== '') {
+                saveButton.disabled = false;
+            } else {
+                saveButton.disabled = true;
+            }
+        }
+
+        document.getElementById('class-code').addEventListener('input', enableSaveButton);
+        document.getElementById('department').addEventListener('change', enableSaveButton);
+        document.getElementById('start-date').addEventListener('change', enableSaveButton);
+        document.getElementById('end-date').addEventListener('change', enableSaveButton);
+
+        function save() {
+            alert('Lưu thành công!');
+			  window.location.href = 'quanlynienkhoa.html';
+        }
+
+       function cancel() {
+            // Redirect to another page or simply clear the form
+            window.location.href = 'quanlynienkhoa.html'; // Change this to the URL you want
+        }
+
+    </script>
+</body>
+</html>
